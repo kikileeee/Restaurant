@@ -1,0 +1,7 @@
+body{
+background-color: rgb(255, 139, 97);
+};
+ul{
+display: flex;
+flex-direction: column;
+};
