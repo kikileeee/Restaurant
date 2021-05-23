@@ -70,13 +70,46 @@ aside{
 }
 aside p{
     height: fit-content;
-    margin: 4px;
+    margin: 10px;
+}
+aside input{
+    margin: 10px;
 }
 .box{
     width: 200px;
     height: 200px;
     margin: 20px;
     background-color: rgb(114, 114, 114);
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid white;
+    transition: 150ms;
+}
+.box:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.box img {
+    height: 100%;
+    
+
+}
+.box span{
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    opacity: 70%;
+    background-color: black;
+}
+.box p {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: x-large;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
 }
