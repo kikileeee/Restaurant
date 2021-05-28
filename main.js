@@ -8,10 +8,10 @@ function proveriDaLiJeOtvoreno(name, link) {
 
     xml.onload = function () {
         if (xml.readyState == 4 && xml.status == 200) {
-            response1 = xml.responseXML.querySelectorAll('.JjSWRd span span span')[0].innerText
+            response1 = xml.responseXML.querySelectorAll('.JjSWRd span span span')[0].innerText;
             // do a greyscale on those who are closed
             if (response1 == 'Затворено') {
-                $('#' + name).css("filter", "grayscale(100%)")
+                $('#' + name).css("filter", "grayscale(100%)");
             }
         }
     };
@@ -34,23 +34,61 @@ let radnje = [{
     name: 'HaloLeskovac',
     link: 'https://www.google.com/search?q=halo+leskovac&oq=halo+lesko&aqs=chrome.0.69i59j69i57j0i402j0l7.1775j0j7&sourceid=chrome&ie=UTF-8'
     , type: 'burger'
-}]
+},
+{
+    name: 'SoulFood',
+    link: 'https://www.google.com/search?q=soul+food+pancevo&oq=soul+food&aqs=chrome.0.0j69i57j0l8.1903j0j7&sourceid=chrome&ie=UTF-8',
+    type: 'pasta'
+}
+];
 
 // Loop through all shops
 for (i = 0; i < radnje.length; i++) {
     proveriDaLiJeOtvoreno(radnje[i].name, radnje[i].link)
-}
-// 
+};
 
-function filter(name, type) {
-    if ($('#pizza')[0].checked) {
-        
+function filterF(type) {
+    if ($('#all')[0].checked) {
+        $('.box').show()
+    }
+    else if ($('#' + type)[0].checked) {
+        radnje.filter(function (e) {
+            if (e.type == type) {
+                $('#' + e.name).show()
+            } else {
+                $('#' + e.name).hide()
+            }
+
+        })
     }
 
-}
+
+    // if ($('#' + type)[0].checked) {
+    //     radnje.filter(function (e) {
+
+    //         if (e.type == type) { 
+
+    // console.log(e)
+    //         }
+    //         else {
+    //             $('#' + e.name).hide();
+    //         }
+    //     })
+    // } else {
+    //     radnje.filter(function (e) {
+    //         if (e.type == type) { }
+    //         else {
+    //             $('#' + e.name).show();
+
+    //         }
+    //     })
+    // }
+
+};
 
 
 $('.pretraga').on('click', function () {
-    for (i = 0; i < radnje.length; i++){
-        filter(radnje[i].name, radnje[i].type)}
-})
+    for (i = 0; i < radnje.length; i++) {
+        filterF(radnje[i].type);
+    }
+});
