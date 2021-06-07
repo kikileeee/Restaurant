@@ -61,29 +61,6 @@ function filterF(type) {
 
         })
     }
-
-
-    // if ($('#' + type)[0].checked) {
-    //     radnje.filter(function (e) {
-
-    //         if (e.type == type) { 
-
-    // console.log(e)
-    //         }
-    //         else {
-    //             $('#' + e.name).hide();
-    //         }
-    //     })
-    // } else {
-    //     radnje.filter(function (e) {
-    //         if (e.type == type) { }
-    //         else {
-    //             $('#' + e.name).show();
-
-    //         }
-    //     })
-    // }
-
 };
 
 
